@@ -16,9 +16,9 @@
 
 module "agent_engine" {
   source = "GoogleCloudPlatform/vertex-ai/google//modules/agent-engine"
-  
-  project           = var.project
-  display_name      = "Vertex AI Agent Engine"
-  region            = "us-central1"
-  description       = "Agent Engine example"
+
+  project      = var.project
+  display_name = "Vertex AI Agent Engine"
+  region       = "us-central1"
+  description  = "Agent Engine example"
 }
