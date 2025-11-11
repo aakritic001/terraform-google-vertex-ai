@@ -16,7 +16,7 @@
 
 resource "google_vertex_ai_reasoning_engine" "main" {
   display_name = var.display_name
-  project      = var.project
+  project      = var.project_id
   region       = var.region
   description  = var.description
 
