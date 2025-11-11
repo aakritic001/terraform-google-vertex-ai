@@ -50,7 +50,7 @@ spec:
         description: The display name of the Reasoning Engine.
         varType: string
         required: true
-      - name: project
+      - name: project_id
         description: The ID of the project in which the resource belongs.
         varType: string
         required: true
