@@ -36,5 +36,5 @@ output "reasoning_engine_update_time" {
 
 output "project" {
   description = "The project ID where the ReasoningEngine was created."
-  value       = var.project
+  value       = var.project_id
 }

@@ -3,7 +3,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| project | The ID of the Google Cloud project in which to deploy the Reasoning Engine. | `string` | n/a | yes |
+| project\_id | The ID of the Google Cloud project in which to deploy the Reasoning Engine. | `string` | n/a | yes |
 
 ## Outputs
 
