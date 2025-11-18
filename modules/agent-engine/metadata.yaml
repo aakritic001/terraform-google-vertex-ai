@@ -25,7 +25,7 @@ spec:
       repo: https://github.com/GoogleCloudPlatform/terraform-google-vertex-ai.git
       sourceType: git
       dir: /modules/agent-engine
-    version: 1.1.0
+    version: 1.1.1
     actuationTool:
       flavor: Terraform
       version: ">= 1.3"
@@ -96,7 +96,7 @@ spec:
               source: github.com/GoogleCloudPlatform/terraform-google-secret-manager//modules/simple-secret
               version: ">= 0.9.0"
             spec:
-              outputExpr: "{\"name\": \"example\", \"secret_ref\": env_vars.SECRET}"
+              outputExpr: "{\"name\": name, \"secret_ref\": env_vars.SECRET}"
               inputPath: deployment_spec.secret_env
     outputs:
       - name: reasoning_engine_create_time
