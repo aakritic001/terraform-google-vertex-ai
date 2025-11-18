@@ -35,7 +35,7 @@ resource "google_vertex_ai_reasoning_engine" "main" {
       service_account = lookup(spec.value, "service_account", null)
 
       dynamic "package_spec" {
-        for_each = lookup(spec.value, "package_spec", null) != null ? [spec.value.package_spec] : []
+        for_each = spec.value.package_spec == null ? [] : [spec.value.package_spec]
         content {
           dependency_files_gcs_uri = lookup(package_spec.value, "dependency_files_gcs_uri", null)
           pickle_object_gcs_uri    = lookup(package_spec.value, "pickle_object_gcs_uri", null)
@@ -45,17 +45,17 @@ resource "google_vertex_ai_reasoning_engine" "main" {
       }
 
       dynamic "deployment_spec" {
-        for_each = lookup(spec.value, "deployment_spec", null) != null ? [spec.value.deployment_spec] : []
+        for_each = spec.value.deployment_spec == null ? [] : [spec.value.deployment_spec]
         content {
           dynamic "env" {
-            for_each = lookup(deployment_spec.value, "env", [])
+            for_each = deployment_spec.value.env == null ? [] : deployment_spec.value.env
             content {
               name  = env.value.name
               value = env.value.value
             }
           }
           dynamic "secret_env" {
-            for_each = lookup(deployment_spec.value, "secret_env", [])
+            for_each = deployment_spec.value.secret_env == null ? [] : deployment_spec.value.secret_env
             content {
               name = secret_env.value.name
               secret_ref {
