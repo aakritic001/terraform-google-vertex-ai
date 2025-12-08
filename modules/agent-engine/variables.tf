@@ -45,7 +45,7 @@ variable "spec" {
   description = "Configurations of the Reasoning Engine."
   type = object({
     agent_framework = optional(string)
-    class_methods   = optional(string)
+    class_methods   = optional(list(any))
     deployment_spec = optional(object({
       env = optional(list(object({
         name  = string

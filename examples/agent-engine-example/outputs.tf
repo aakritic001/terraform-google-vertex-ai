@@ -24,14 +24,9 @@ output "reasoning_engine_name" {
   value       = module.reasoning_engine.reasoning_engine_name
 }
 
-output "reasoning_engine_create_time" {
-  description = "The timestamp of when the created ReasoningEngine was created."
-  value       = module.reasoning_engine.reasoning_engine_create_time
-}
-
-output "reasoning_engine_update_time" {
-  description = "The timestamp of when the created ReasoningEngine was last updated."
-  value       = module.reasoning_engine.reasoning_engine_update_time
+output "reasoning_engine" {
+  description = "The generated name of the Reasoning Engine."
+  value       = module.reasoning_engine.reasoning_engine
 }
 
 output "project" {
