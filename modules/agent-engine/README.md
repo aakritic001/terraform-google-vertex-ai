@@ -20,9 +20,8 @@ This module provisions a [Vertex AI Agent Engine](https://docs.cloud.google.com/
 
 | Name | Description |
 |------|-------------|
-| reasoning\_engine\_create\_time | The timestamp of when the Reasoning Engine was created. |
+| reasoning\_engine | The full google\_vertex\_ai\_reasoning\_engine resource object. |
 | reasoning\_engine\_id | The unique identifier for the Reasoning Engine resource. |
 | reasoning\_engine\_name | The generated name of the Reasoning Engine. |
-| reasoning\_engine\_update\_time | The timestamp of when the Reasoning Engine was last updated. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
