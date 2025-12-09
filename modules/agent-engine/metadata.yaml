@@ -25,7 +25,7 @@ spec:
       repo: https://github.com/GoogleCloudPlatform/terraform-google-vertex-ai.git
       sourceType: git
       dir: /modules/agent-engine
-    version: 1.1.5
+    version: 1.1.6
     actuationTool:
       flavor: Terraform
       version: ">= 1.3"
@@ -96,7 +96,7 @@ spec:
               source: github.com/terraform-google-modules/terraform-google-sql-db//modules/postgresql
               version: ">= 26.2.2"
             spec:
-              outputExpr: "[{\"name\": \"CLOUD_SQL_DATABASE_HOST\", \"value\": \"${try(instance_first_ip_address, \"\")}\"}, {\"name\": \"CLOUD_SQL_DATABASE_CONNECTION_NAME\", \"value\": \"${instance_connection_name}\"}, {\"name\": \"CLOUD_SQL_DATABASE_NAME\", \"value\": \"${env_vars.CLOUD_SQL_DATABASE_NAME}\"}]"
+              outputExpr: "[{\"name\": \"CLOUD_SQL_DATABASE_HOST\", \"value\": \"test_ip\"}, {\"name\": \"CLOUD_SQL_DATABASE_CONNECTION_NAME\", \"value\": \"test_conn\"}, {\"name\": \"CLOUD_SQL_DATABASE_NAME\", \"value\": \"test_db\"}]"
               inputPath: deployment_spec.env
     outputs:
       - name: reasoning_engine
