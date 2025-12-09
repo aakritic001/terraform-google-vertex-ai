@@ -96,7 +96,7 @@ spec:
               source: github.com/terraform-google-modules/terraform-google-sql-db//modules/postgresql
               version: ">= 26.2.2"
             spec:
-              outputExpr: "[{\"name\": \"CLOUD_SQL_DATABASE_HOST\", \"value\": instance_first_ip_address}, {\"name\": \"CLOUD_SQL_DATABASE_CONNECTION_NAME\", \"value\": instance_connection_name}, {\"name\": \"CLOUD_SQL_DATABASE_NAME\", \"value\": env_vars.CLOUD_SQL_DATABASE_NAME}]"
+              outputExpr: "[{\"name\": \"CLOUD_SQL_DATABASE_HOST\", \"value\": \"${try(instance_first_ip_address, \"\")}\"}, {\"name\": \"CLOUD_SQL_DATABASE_CONNECTION_NAME\", \"value\": \"${instance_connection_name}\"}, {\"name\": \"CLOUD_SQL_DATABASE_NAME\", \"value\": \"${env_vars.CLOUD_SQL_DATABASE_NAME}\"}]"
               inputPath: deployment_spec.env
     outputs:
       - name: reasoning_engine
