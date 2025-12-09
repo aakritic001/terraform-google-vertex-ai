@@ -30,7 +30,7 @@ spec:
       variables:
         description:
           name: description
-          title: Description
+          title: Descriptions
         display_name:
           name: display_name
           title: Display Name
