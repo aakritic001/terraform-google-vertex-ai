@@ -94,7 +94,7 @@ spec:
         connections:
           - source:
               source: github.com/terraform-google-modules/terraform-google-sql-db//modules/postgresql
-              version: ">= 27.0.0"
+              version: ">= 26.2.2"
             spec:
               outputExpr: "[{\"name\": \"CLOUD_SQL_DATABASE_HOST\", \"value\": instance_first_ip_address}, {\"name\": \"CLOUD_SQL_DATABASE_CONNECTION_NAME\", \"value\": instance_connection_name}, {\"name\": \"CLOUD_SQL_DATABASE_NAME\", \"value\": env_vars.CLOUD_SQL_DATABASE_NAME}]"
               inputPath: deployment_spec.env
