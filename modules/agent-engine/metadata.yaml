@@ -98,6 +98,12 @@ spec:
             spec:
               outputExpr: "{\"name\": \"CLOUD_SQL_DATABASE_HOST\", \"value\": instance_first_ip_address}"
               inputPath: deployment_spec.env
+          - source:
+              source: github.com/terraform-google-modules/terraform-google-bigquery
+              version: ">= 10.2.1"
+            spec:
+              outputExpr: "{\"name\": \"BIGQUERY_DATASET_ID\", \"value\": env_vars.BIGQUERY_DATASET}"
+              inputPath: deployment_spec.env
     outputs:
       - name: reasoning_engine
         description: The full google_vertex_ai_reasoning_engine resource object.
