@@ -31,7 +31,7 @@ resource "google_vertex_ai_reasoning_engine" "main" {
     for_each = var.spec != null ? [var.spec] : []
     content {
       agent_framework = lookup(spec.value, "agent_framework", null)
-      class_methods   = lookup(spec.value, "class_methods", null)
+      class_methods   = lookup(spec.value, "class_methods", null) == null ? null : jsonencode(lookup(spec.value, "class_methods", null))
       service_account = lookup(spec.value, "service_account", null)
 
       dynamic "package_spec" {
