@@ -114,7 +114,34 @@ spec:
               source: github.com/terraform-google-modules/terraform-google-sql-db//modules/mysql
               version: ">= 26.2.2"
             spec:
-              outputExpr: "{\"name\": \"DB_HOST\", \"value\": instance_first_ip_address}, {\"name\": \"DB_PORT\", \"value\": \"3306\"}, {\"name\": \"DB_NAME\", \"value\": env_vars.CLOUD_SQL_DATABASE_NAME}, {\"name\": \"DB_USER\", \"value\": user_name}, {\"name\": \"DB_PASS\", \"value\": generated_user_password}, {\"name\": \"INSTANCE_CONNECTION_NAME\", \"value\": instance_connection_name}"
+              outputExpr: <<EOT
+[
+  {
+    name  = "DB_HOST"
+    value = "${try(instance_first_ip_address, "")}"
+  },
+  {
+    name  = "DB_PORT"
+    value = "3306"
+  },
+  {
+    name  = "DB_NAME"
+    value = "${try(env_vars.CLOUD_SQL_DATABASE_NAME, "")}"
+  },
+  {
+    name  = "DB_USER"
+    value = "${try(user_name, "")}"
+  },
+  {
+    name  = "DB_PASS"
+    value = "${try(generated_user_password, "")}"
+  },
+  {
+    name  = "INSTANCE_CONNECTION_NAME"
+    value = "${try(instance_connection_name, "")}"
+  }
+]
+EOT
               inputPath: deployment_spec.env
     outputs:
       - name: reasoning_engine
