@@ -47,10 +47,7 @@ variable "spec" {
     agent_framework = optional(string)
     class_methods   = optional(list(any))
     deployment_spec = optional(object({
-      env = optional(list(object({
-        name  = string
-        value = string
-      })))
+      env = optional(map(string), {})
       secret_env = optional(list(object({
         name       = string
         secret_ref = object({
