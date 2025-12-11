@@ -2,6 +2,24 @@
 
 This module provisions a [Vertex AI Agent Engine](https://docs.cloud.google.com/agent-builder/agent-engine/overview)
 
+## Simple Usage
+
+Here's a basic example of how to use the module:
+
+module "agent_engine" {
+  source = "GoogleCloudPlatform/vertex-ai/google//modules/agent-engine"
+
+  project_id   = "your-gcp-project-id"
+  display_name = "My Awesome Agent"
+  region       = "us-central1"
+  description  = "A simple example of a Reasoning Engine deployment"
+}
+
+output "reasoning_engine_id" {
+  description = "ID of the deployed agent engine"
+  value       = module.agent_engine.reasoning_engine_id
+}
+
 <!-- BEGIN_TF_DOCS -->
 <!-- END_TF_DOCS -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
@@ -14,7 +32,7 @@ This module provisions a [Vertex AI Agent Engine](https://docs.cloud.google.com/
 | kms\_key\_name | Customer-managed encryption key name for a Reasoning Engine. If set, this Reasoning Engine and all sub-resources will be secured by this key. | `string` | `null` | no |
 | project\_id | The ID of the project in which the resource belongs. | `string` | n/a | yes |
 | region | The region of the reasoning engine. eg us-central1. | `string` | n/a | yes |
-| spec | Configurations of the Reasoning Engine. | <pre>object({<br>    agent_framework = optional(string)<br>    class_methods   = optional(list(any))<br>    deployment_spec = optional(object({<br>      env = optional(list(object({<br>        name  = string<br>        value = string<br>      })))<br>      secret_env = optional(list(object({<br>        name       = string<br>        secret_ref = object({<br>          secret  = string<br>          version = optional(string)<br>        })<br>      })))<br>    }))<br>    package_spec = optional(object({<br>      dependency_files_gcs_uri = optional(string)<br>      pickle_object_gcs_uri    = optional(string)<br>      python_version           = optional(string)<br>      requirements_gcs_uri     = optional(string)<br>    }))<br>    service_account = optional(string)<br>  })</pre> | `null` | no |
+| spec | Configurations of the Reasoning Engine. | <pre>object({<br>    agent_framework = optional(string)<br>    class_methods   = optional(list(any))<br>    deployment_spec = optional(object({<br>      env = optional(map(string), {})<br>      secret_env = optional(list(object({<br>        name = string<br>        secret_ref = object({<br>          secret  = string<br>          version = optional(string)<br>        })<br>      })))<br>    }))<br>    package_spec = optional(object({<br>      dependency_files_gcs_uri = optional(string)<br>      pickle_object_gcs_uri    = optional(string)<br>      python_version           = optional(string)<br>      requirements_gcs_uri     = optional(string)<br>    }))<br>    service_account = optional(string)<br>  })</pre> | `null` | no |
 
 ## Outputs
 

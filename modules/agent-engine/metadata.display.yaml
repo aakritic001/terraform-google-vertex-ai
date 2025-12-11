@@ -30,7 +30,7 @@ spec:
       variables:
         description:
           name: description
-          title: Descriptions
+          title: Description
         display_name:
           name: display_name
           title: Display Name
@@ -49,3 +49,7 @@ spec:
         spec:
           name: spec
           title: Spec
+    runtime:
+      outputs:
+        reasoning_engine:
+          visibility: VISIBILITY_ROOT

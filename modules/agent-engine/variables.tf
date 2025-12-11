@@ -38,7 +38,7 @@ variable "description" {
 variable "kms_key_name" {
   description = "Customer-managed encryption key name for a Reasoning Engine. If set, this Reasoning Engine and all sub-resources will be secured by this key."
   type        = string
-  default     = null 
+  default     = null
 }
 
 variable "spec" {
@@ -49,7 +49,7 @@ variable "spec" {
     deployment_spec = optional(object({
       env = optional(map(string), {})
       secret_env = optional(list(object({
-        name       = string
+        name = string
         secret_ref = object({
           secret  = string
           version = optional(string)

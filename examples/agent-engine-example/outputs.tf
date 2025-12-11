@@ -16,17 +16,17 @@
 
 output "reasoning_engine_id" {
   description = "The unique identifier for the created ReasoningEngine resource."
-  value       = module.reasoning_engine.reasoning_engine_id
+  value       = module.agent_engine.reasoning_engine_id
 }
 
 output "reasoning_engine_name" {
   description = "The generated name of the created ReasoningEngine."
-  value       = module.reasoning_engine.reasoning_engine_name
+  value       = module.agent_engine.reasoning_engine_name
 }
 
 output "reasoning_engine" {
   description = "The generated name of the Reasoning Engine."
-  value       = module.reasoning_engine.reasoning_engine
+  value       = module.agent_engine.reasoning_engine
 }
 
 output "project" {
