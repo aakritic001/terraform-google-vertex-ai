@@ -20,6 +20,7 @@ output "reasoning_engine_id" {
   description = "ID of the deployed agent engine"
   value       = module.agent_engine.reasoning_engine_id
 }
+```
 
 <!-- BEGIN_TF_DOCS -->
 <!-- END_TF_DOCS -->
