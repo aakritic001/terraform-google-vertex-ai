@@ -6,6 +6,7 @@ This module provisions a [Vertex AI Agent Engine](https://docs.cloud.google.com/
 
 Here's a basic example of how to use the module:
 
+```terraform
 module "agent_engine" {
   source = "GoogleCloudPlatform/vertex-ai/google//modules/agent-engine"
 
