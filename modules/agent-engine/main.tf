@@ -48,10 +48,10 @@ resource "google_vertex_ai_reasoning_engine" "main" {
         for_each = spec.value.deployment_spec == null ? [] : [spec.value.deployment_spec]
         content {
           dynamic "env" {
-            for_each = deployment_spec.value.env == null ? [] : deployment_spec.value.env
+            for_each = deployment_spec.value.env == null ? {} : deployment_spec.value.env
             content {
-              name  = env.value.name
-              value = env.value.value
+              name  = env.key
+              value = env.value
             }
           }
           dynamic "secret_env" {
