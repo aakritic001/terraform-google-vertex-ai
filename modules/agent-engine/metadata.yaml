@@ -99,7 +99,7 @@ spec:
               source: github.com/terraform-google-modules/terraform-google-bigquery
               version: ">= 10.2.1"
             spec:
-              outputExpr: "{\"name\": \"BIGQUERY_DATASET_ID\", \"value\": env_vars.BIGQUERY_DATASET}"
+              outputExpr: "{\"BIGQUERY_DATASET_ID\": env_vars.BIGQUERY_DATASET}"
               inputPath: deployment_spec.env
           - source:
               source: github.com/terraform-google-modules/terraform-google-memorystore
@@ -108,11 +108,17 @@ spec:
               outputExpr: env_vars
               inputPath: deployment_spec.env
           - source:
-              source: github.com/GoogleCloudPlatform/terraform-google-cloud-run//modules/v2
-              version: ">= 0.22.0"
+              source: github.com/terraform-google-modules/terraform-google-sql-db//modules/mysql
+              version: ">= 26.2.2"
             spec:
-              outputExpr: "{\"name\": \"AGENT_TOOL_ENDPOINT\", \"value\": service_uri}"
-              inputPath:  "deployment_spec.env"
+              outputExpr: env_vars
+              inputPath: deployment_spec.env
+          - source:
+              source: github.com/GoogleCloudPlatform/terraform-google-firestore
+              version: ">= 0.2.2"
+            spec:
+              outputExpr: "{\"FIRESTORE_DATABASE_ID\": database_id}"
+              inputPath: deployment_spec.env
     outputs:
       - name: reasoning_engine
         description: The full google_vertex_ai_reasoning_engine resource object.
